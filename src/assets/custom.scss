@@ -1,0 +1,117 @@
+// CSS Vars (for light/dark modes
+
+// Light
+:root {
+  --text-color: rgb(49, 49, 49);
+  --bg-color: white;
+  --card-bg-color: rgba(255, 255, 255, 0);
+  --card-border-color: rgb(155, 155, 155);
+  --progress-bg-color: rgb(228, 228, 228);
+}
+
+// Dark
+[data-theme="dark"] {
+  --text-color: rgb(243, 243, 243);
+  --bg-color: rgb(25, 24, 31);
+  --card-bg-color: rgb(25, 24, 31, 0);
+  --card-border-color: rgb(94, 94, 94);
+  --progress-bg-color: rgb(61, 61, 61);
+}
+
+// Pokedex Primary
+$primary: #FF5757;
+
+// Bootstrap Widths
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+$theme-colors: (
+  "sort": #07dd44,
+  "order": #2faaf1,
+  "reset": #ED6553,
+  "settings": rgb(145, 77, 255),
+  "lightOn": rgb(255, 248, 147),
+  "lightOff": rgb(36, 36, 36),
+  "toTop": rgb(0, 162, 255),
+
+  // TYPES
+  "bug": #A8B81F,
+  "ghost": #705898,
+  "steel": #B8B8D0,
+  "ice": #98D8D8,
+  "dragon": #7038F8,
+  "dark": #705847,
+  "unknown": #111414,
+  "shadow": #111414,
+  "fire": #ED6553,
+  "grass": #53D076,
+  "water": #64B9E9,
+  "poison": #A040A0,
+  "normal": #BBB473,
+  "flying": #DB90F5,
+  "fighting": #BF2F29,
+  "electric": #F8D030,
+  "fairy": #FFBFF1,
+  "psychic": #D053C4,
+  "ground": #E0C068,
+  "rock": #B8A037,
+);
+
+// Bootstrap Styles
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';
+
+// Layouts
+body, html {
+  background: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  height: 100%;
+}
+
+.min-100 {
+  min-height: 100%;
+}
+
+.btn {
+  border-radius: 30px;
+}
+
+// Progress Bar Overrides
+.progress {
+  border-radius: 30px !important;
+}
+
+.progress .progress-bar {
+  border-radius: 13px !important;
+  -moz-animation-name: animateBar;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-timing-function: ease-out;
+  -moz-animation-duration: .8s;
+
+  -webkit-animation-name: animateBar;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-out;
+  -webkit-animation-duration: .8s;
+
+  animation-name: animateBar;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-duration: .8s;
+}
+
+@-moz-keyframes animateBar {
+  0% {-moz-transform: translateX(-100%);}
+  100% {-moz-transform: translateX(0);}
+}
+@-webkit-keyframes animateBar {
+  0% {-webkit-transform: translateX(-100%);}
+  100% {-webkit-transform: translateX(0);}
+}
+@keyframes animateBar {
+  0% {transform: translateX(-100%);}
+  100% {transform: translateX(0);}
+}

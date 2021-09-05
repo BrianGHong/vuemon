@@ -1,26 +1,28 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Search from '../views/Search.vue'
+import VueRouter from 'vue-router';
+import Profile from '../views/Profile.vue';
+import Search from '../views/Search.vue';
 
 const routes = [
   {
     path: '/',
     name: 'Search',
-    component: Search
+    component: Search,
   },
   {
-    path: '/view/:id',
-    name: 'View',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/View.vue'),
+    path: '/profile/:id',
+    name: 'Profile',
+    component: Profile,
     props: true
-  }
-]
+  },
+  {
+    path: '/:catchAll(.*)',
+    redirect: '/',
+  },
+];
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+const router = new VueRouter({
+  mode: 'history',
   routes
-});
+})
 
 export default router;
